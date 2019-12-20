@@ -49,6 +49,10 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
     $ npm run start-dev
 
-## Accessing the application
+## Accessing your D3 app!!
 
     http://localhost:8080
+
+## Questions
+
+    nnomula@onebridge.tech
