@@ -2,7 +2,7 @@
   <head>
       <title>Onebridge D3 V5 2020 - Bootstrap - Node - Webpack - Starter - Template</title>
       <meta charset="utf-8">
-      <meta name="google-signin-client_id" content="76966132169-r53t4uc5ssvu5ob22ovoijudvnksu7ssl8f9.apps.googleusercontent.com">
+      <meta name="google-signin-client_id" content="asdfasfc5vu5ob22ovoijudvnksu7l8f9.apps.googleusercontent.com">
       <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
 
@@ -72,8 +72,13 @@
     
     </div>
 
-  
+    <a href="#" onclick="signOut();">Sign out</a>
   </div>  
+
+  <div id="not-authorized">
+    <p class="alert alert-danger">You are not authorized to view this page</p>
+    <a href="#" onclick="signOut();">Sign out</a>
+  </div>
 
   </body>
 
@@ -88,13 +93,29 @@
       console.log("Image URL: " + profile.getImageUrl());
       console.log("Email: " + profile.getEmail());
 
-      document.getElementById("authenticated").style.display = "block";
-      document.getElementById("gglSgnInBtn").style.display = "none";
-
+      
       document.getElementById("email").innerText = profile.getEmail();
+
+      if(profile.getEmail() === "nikhidas@gmail.com") {
+        document.getElementById("authenticated").style.display = "block";
+        document.getElementById("gglSgnInBtn").style.display = "none";
+      } else {
+        document.getElementById("authenticated").style.display = "none";
+        document.getElementById("gglSgnInBtn").style.display = "none";
+        document.getElementById("not-authorized").style.display = "block";
+      }
      
     }
 
+    function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+      document.getElementById("authenticated").style.display = "none";
+        document.getElementById("gglSgnInBtn").style.display = "block";
+        document.getElementById("not-authorized").style.display = "none";
+    });
+    }
   </script>
 
 

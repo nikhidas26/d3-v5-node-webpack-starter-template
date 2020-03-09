@@ -6,3 +6,7 @@
 #authenticated {
   display: none
 }
+
+#not-authorized {
+  display: none
+}

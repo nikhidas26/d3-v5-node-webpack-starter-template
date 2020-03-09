@@ -825,6 +825,10 @@
   margin-top:200px;
 }
 
-.authenticated {
+#authenticated {
+  display: none
+}
+
+#not-authorized {
   display: none
 }
